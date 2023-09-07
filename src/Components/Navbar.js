@@ -44,11 +44,11 @@ const Navbar = () => {
         {/* user end */}
         {!login && <div className="relative flex justify-center items-center">
           <div>
-            <button className="font-semibold rounded-lg outline-0 flex items-center justify-center p-2 mx-2 bg-lime-500">
+            <button className="font-semibold rounded-lg outline-0 flex items-center justify-center p-1 mx-1 text-base  text-gray-200">
             <Link to="/login">Login</Link>
             </button>
           </div>
-            <button className="font-semibold rounded-lg outline-0 flex items-center justify-center p-2 mx-2 bg-lime-500">
+            <button className="font-semibold rounded-lg outline-0 flex items-center text-base justify-center p-1 mx-1 text-gray-200 ">
             <Link to="/signup">Sign Up</Link>
             </button>
           <div>
