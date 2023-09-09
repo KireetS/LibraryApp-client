@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import addbookContext from "../Contexts/addbooks/addbookContext";
 
 const Search = () => {
   const [books, setBooks] = useState([]);
@@ -6,6 +7,7 @@ const Search = () => {
   const [startIndex, setStartIndex] = useState(0);
   const [press , setPressed] = useState(false)
   const api = process.env.REACT_APP_API;
+  const {addBook} = useContext(addbookContext)
   const fetchData = async (s) => {
     try {
       const response = await fetch(
@@ -72,9 +74,9 @@ const Search = () => {
       {/* books */}
       <div className="flex min-h-screen flex-wrap items-center justify-center bg-blue-900">
         {books.length > 0 &&
-          books.map((book) => (
-            <div key={book.id}>
-              <div className=" w-44 rounded-lg bg-blue-800 flex flex-col items-center justify-center p-5 m-6 flex-grow">
+          books.map((book , index) => (
+            <div key={index}>
+              <div className=" w-72 sm:w-44 rounded-lg bg-blue-800 flex flex-col items-center justify-center p-5 m-6 flex-grow">
                 {/* image */}
                 <div>
                   <img
@@ -100,7 +102,15 @@ const Search = () => {
                     : "author not mentioned"}
                 </div>
                 <div>
-                  <button className="bg-lime-500 p-3 text-sm rounded-lg mx-2 h-8 font-semibold flex items-center justify-center my-2">
+                  <button className="bg-lime-500 p-3 text-sm rounded-lg mx-2 h-8 font-semibold flex items-center justify-center my-2" onClick={()=>{
+                    addBook(book.volumeInfo.title
+                      ? (book.volumeInfo.title)
+                      : "no title" ,book.volumeInfo.authors
+                      ? book.volumeInfo.authors[0]
+                      : "author not mentioned"  ,book.volumeInfo.imageLinks
+                      ? book.volumeInfo.imageLinks.thumbnail
+                      : "https://media.istockphoto.com/id/949118068/photo/books.jpg?s=612x612&w=is&k=20&c=jE5ghXhOcK44XdFOdIl62CDkmW1SymnYe0XBc23qus8=" )
+                  }}>
                     Add To Library
                   </button>
                 </div>
