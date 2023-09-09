@@ -6,6 +6,7 @@ import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
 import AddBookState from "./Contexts/addbooks/AddBookState";
 import MyBooks from "./Components/MyBooks";
+import Home from "./Components/Home";
 function App() {
   const [login , setLogin] = useState(localStorage.getItem("token"))
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/search" element={<Search />}/>
       <Route path="/signup" element={<SignUp />}/>
       <Route path ="/mybooks" element = {<MyBooks/>}/>
+      <Route path ="/" element = {<Home/>}/>
       </Routes>
       </div>
       </AddBookState>

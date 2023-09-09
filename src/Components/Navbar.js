@@ -31,6 +31,7 @@ const Navbar = (props) => {
   };
   useEffect(() => {
     fetchUserDetails();
+    console.log(isNavOpen)
     // eslint-disable-next-line
   }, []);
   return (
