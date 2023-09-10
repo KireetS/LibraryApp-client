@@ -4,10 +4,10 @@ const SignUp = () => {
   const [name , setName] = useState("")
   const [email , setEmail] = useState("")
   const [password , setPassword] = useState("")
-
+  const url = "https://library-app-backend-kfye.onrender.com";
   const createUser = async()=>{
     try{
-      await fetch("http://localhost:5000/api/auth/create" , {
+      await fetch(`${url}/api/auth/create` , {
         method : "POST",
         headers : {
           "Content-Type" : "application/json"

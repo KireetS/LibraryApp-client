@@ -5,9 +5,10 @@ const MyBooks = () => {
   const {added} = useContext(addbookContext)
   const [books , setBooks] = useState([])
   const [deleted , setDeleted] = useState(false)
+  const url = "https://library-app-backend-kfye.onrender.com";
   const deleteBook = async(id)=>{
     try{
-      await fetch(`http://localhost:5000/api/books/delete/${id}` , {
+      await fetch(`${url}/api/books/delete/${id}` , {
         method : "DELETE",
         headers : {
           "Content-Type" : "application/json",
@@ -23,7 +24,7 @@ const MyBooks = () => {
   }
   const fetchMybooks = async ()=>{
     try{
-      const response = await fetch("http://localhost:5000/api/books/mybooks" , {
+      const response = await fetch(`${url}/api/books/mybooks` , {
         method : "GET",
         headers : {
           "Content-Type" : "application/json",

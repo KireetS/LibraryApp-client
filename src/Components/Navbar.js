@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 const Navbar = (props) => {
+  const url = "https://library-app-backend-kfye.onrender.com";
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [name, setName] = useState("Username");
   const toggleNav = () => {
@@ -16,7 +17,7 @@ const Navbar = (props) => {
   const fetchUserDetails = async () => {
     try {
       if (login) {
-        const res = await fetch("http://localhost:5000/api/auth/getuser", {
+        const res = await fetch(`${url}/api/auth/getuser`, {
           headers: {
             "Content-Type": "application/json",
             "auth-token": localStorage.getItem("token"),

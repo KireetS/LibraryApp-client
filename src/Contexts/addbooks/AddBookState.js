@@ -3,9 +3,10 @@ import AddbookContext from "./addbookContext";
 
 const AddBookState = (props)=>{
   const [added , setAdded] =useState(false);
+  const url = "https://library-app-backend-kfye.onrender.com";
   const addBook = async (name , author , thumbnail)=>{
     try{
-      await fetch("http://localhost:5000/api/books/add" , {
+      await fetch(`${url}/api/books/add` , {
         method : "POST",
         headers : {
           "Content-Type" : "application/json",
