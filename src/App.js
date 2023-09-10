@@ -20,7 +20,7 @@ function App() {
       <Route path="/search" element={<Search />}/>
       <Route path="/signup" element={<SignUp />}/>
       <Route path ="/mybooks" element = {<MyBooks/>}/>
-      <Route path ="/" element = {<Home/>}/>
+      <Route path ="/" element = {<Home login={login}/>}/>
       </Routes>
       </div>
       </AddBookState>

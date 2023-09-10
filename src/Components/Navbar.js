@@ -33,7 +33,7 @@ const Navbar = (props) => {
     fetchUserDetails();
     console.log(isNavOpen)
     // eslint-disable-next-line
-  }, []);
+  }, [login]);
   return (
     <>
       <nav className=" flex justify-between bg-blue-950 items-center p-2">
